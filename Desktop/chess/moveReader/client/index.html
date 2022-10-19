@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chess Reader</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+           integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+           crossorigin="anonymous"></script>
+  </head>
+  <body>
+      <h1>
+          Chess Reader
+      </h1>
+      <p> This web-app reads chess moves via browser extension and provides real-time stockfish analysis.</p>
+      <div>
+          <h2>Last Move: <pre id = 'moves'> </pre> </h2> 
+      </div>
+      <div>
+        <h3> Line 1:  <span id ='line1'></span></h3>
+        <h3> Line 2:  <span id ='line2'></span></h3>
+        <h3> Line 3:  <span id ='line3'></span></h3>
+
+    </div>
+      <script src="client.js"></script>
+  </body>
+</html>

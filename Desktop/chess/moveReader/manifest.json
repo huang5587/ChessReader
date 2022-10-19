@@ -1,0 +1,27 @@
+{
+
+  "manifest_version": 2,
+  "name": "ChessReader",
+  "version": "1.0",
+
+  "description": "Recieves and transmits chess moves in real-time to Chess Reader app.",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "permissions": [
+    "webRequest",
+    "*://localhost/*",
+    "*://127.0.0.1/*",
+    "*://catfact.ninja/fact"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.chess.com/*"],
+      "js": ["chessReader.js"]
+    }
+  ]
+
+}
