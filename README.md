@@ -26,7 +26,7 @@ python server.py
 
 Then navigate to the client directory and start the client interface by running the following:
 ```
-python3 -m http.server
+python -m http.server
 ```
 
 Access the client interface with your browser at ```localhost:8000 ```
