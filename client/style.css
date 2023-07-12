@@ -1,0 +1,30 @@
+span {
+    color: black;
+    font-weight: normal;
+}
+
+pre {
+    font-weight: bold;
+    color: #000000;
+    font-size: large;
+}
+
+body{
+    background-color: #82c4e2;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
