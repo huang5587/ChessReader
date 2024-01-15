@@ -2,8 +2,8 @@ document.body.style.border = "25px solid green";
 
 console.log( "script loaded")
 
-let observedElem = document.getElementsByTagName("vertical-move-list");
-
+let observedElem = document.getElementsByTagName("wc-vertical-move-list");
+console.log("test3 ", observedElem)
 var parseMoves = (el) => {
     move_list = []
 
@@ -43,21 +43,10 @@ var parseMoves = (el) => {
         mode: 'cors',
         body: JSON.stringify({moves: moves_str}) //return json
     }).then((response) => {
-        console.log("recieved")
-        //console.log("res:", response)
+        console.log("res:", response)
     }).catch((err)=> {
         console.log('rejected', err)
     })
-
-    // fetch("http://127.0.0.1:5000/test", {
-    //     method: 'GET',
-    //     mode: 'cors'
-    // }).then((response) => {
-    //     console.log(response.json())
-    //     console.log("asdasdads")
-    // }).catch((err)=> {
-    //     console.log('rejected', err)
-    // })
 }
 
 var mutationObserver = new MutationObserver(function(mutations) {

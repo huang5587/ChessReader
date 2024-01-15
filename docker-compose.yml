@@ -1,12 +1,21 @@
 version: '3.8'
 
 services:
-  client:
-    build: ./client
-    ports:
-      - "5050:3000"  # Expose client on port 80
-
   server:
     build: ./server
     ports:
       - "5000:8080"  # Expose server on port 8080
+    networks:
+      - my_network
+  client:
+    build: ./client
+    ports:
+      - "5050:3000"  # Expose client on port 80
+    networks:
+      - my_network
+    depends_on:
+      - server
+
+networks:
+  my_network:
+    driver: bridge
