@@ -1,9 +1,10 @@
-document.body.style.border = "25px solid green";
 
-console.log( "script loaded")
+function init() {
+    document.body.style.border = "25px solid green";
+
+    console.log( "loading script...")
 
 let observedElem = document.getElementsByTagName("wc-vertical-move-list");
-console.log("test3 ", observedElem)
 var parseMoves = (el) => {
     move_list = []
 
@@ -43,9 +44,9 @@ var parseMoves = (el) => {
         mode: 'cors',
         body: JSON.stringify({moves: moves_str}) //return json
     }).then((response) => {
-        console.log("res:", response)
+        // console.log("res:", response)
     }).catch((err)=> {
-        console.log('rejected', err)
+        console.log('failed to send moves to server: ', err)
     })
 }
 
@@ -58,5 +59,7 @@ var mutationObserver = new MutationObserver(function(mutations) {
 });
 
 mutationObserver.observe(observedElem[0], { subtree: true, childList: true});
+} 
 
+init();
 

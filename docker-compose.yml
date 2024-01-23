@@ -7,6 +7,12 @@ services:
       - "5000:8080"  # Expose server on port 8080
     networks:
       - my_network
+    depends_on:
+      - chess_psql
+    environment:
+      DATABASE_URL: "postgresql://Chess:password@chess_psql:5432/ChessDB" 
+      POSTGRES_SSL_MODE: "disable" 
+
   client:
     build: ./client
     ports:
@@ -16,6 +22,21 @@ services:
     depends_on:
       - server
 
+  chess_psql:
+    image: postgres:14.10
+    restart: no 
+    environment:
+      POSTGRES_USER: Chess
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: ChessDB
+    ports:
+      - "5432:5432"  # Expose PostgreSQL on port 5051
+    networks:
+      - my_network
+
 networks:
   my_network:
     driver: bridge
+
+volumes:
+  postgres_data:

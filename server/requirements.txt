@@ -3,3 +3,4 @@ Flask
 Flask-CORS
 chess
 python-chess
+psycopg2
