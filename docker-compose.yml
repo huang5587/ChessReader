@@ -4,7 +4,7 @@ services:
   server:
     build: ./server
     ports:
-      - "5000:8080"  # Expose server on port 8080
+      - "5000:8080"  
     networks:
       - my_network
     depends_on:
@@ -16,7 +16,7 @@ services:
   client:
     build: ./client
     ports:
-      - "5050:3000"  # Expose client on port 80
+      - "5050:3000"  
     networks:
       - my_network
     depends_on:
@@ -30,7 +30,7 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: ChessDB
     ports:
-      - "5432:5432"  # Expose PostgreSQL on port 5051
+      - "5432:5432" 
     networks:
       - my_network
 

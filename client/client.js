@@ -1,28 +1,18 @@
     console.log("client.js running...")
 
-    fetch('http://127.0.0.1:5000')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json(); // Returns a Promise
-    })
-    .then(data => {
-      console.log(data); // Process the fetched JSON data
-    })
-    .catch(error => {
-      console.error('There was a problem with the fetch operation:', error);
-    });
-  
     const socket = io("http://127.0.0.1:5000")
     
+    var shouldDisplayDiv = true; // Change this condition based on your logic
+
 
     socket.on("connect", () => {
-        console.log("socket.connected"); // true
+        document.getElementById('conditionalDiv').innerHTML = "socket is connected";
+        console.log("socket.connected"); 
     });
 
     socket.on("disconnect", () => {
-        console.log("disconnected"); // true
+        document.getElementById('conditionalDiv').innerHTML = "socket is disconnected";
+        console.log("disconnected"); 
     });
 
     socket.on('moves', data =>{

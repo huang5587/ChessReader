@@ -25,6 +25,6 @@ ENV PORT=8080
 EXPOSE 8080
 
 # Define the command to run your Python application
-CMD ["python", "server.py"]
+CMD ["python", "-u", "server.py"]
 
 
