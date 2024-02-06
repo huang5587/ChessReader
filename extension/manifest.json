@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "ChessReader",
+  "version": "1.0",
+  "description": "Receives and transmits chess moves in real-time to Chess Reader app.",
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+  "permissions": [
+    "webRequest",
+    "*://localhost/*",
+    "*://127.0.0.1/*",
+    "*://catfact.ninja/fact",
+    "activeTab",
+    "storage",
+    "webNavigation"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.chess.com/*"],
+      "js": ["chessReader.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": {
+      "48": "icons/border-48.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "ChessReader - Click to interact on chess.com"
+  }
+}
+
