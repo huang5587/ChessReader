@@ -3,18 +3,14 @@ This repository contains an app that reads and parses chess.com moves and provid
 
 ## Installation
 
-ChessReader is deployed and maintained with docker. Installation instructions can be found here: > https://docs.docker.com/engine/install/
-
-#### pyChess 
-pyChess is used to conduct engine analysis and also allows for many convenient chess related functions. Installation instructions can be found here: https://pychess.github.io/download/
-
-### Flask-SocketIO
-Flask-SocketIO is used to send and recieve data from server and client. Installation can be found here: https://flask-socketio.readthedocs.io/en/latest/intro.html
-
-### Flask
-Flask is used to host the server itself. Installation instructions can be found here: https://flask.palletsprojects.com/en/2.3.x/installation/#
+ChessReader is deployed and maintained with docker. Installation instructions can be found here: 
+> https://docs.docker.com/engine/install/
 
 ## Usage
+To run ChessReader, run `docker-compose up` from the parent directory (containing docker-compose.yml). This will install necessary dependencies and run all of the components of ChessReader.
+
+Once running you can reach the frontend client at `http://localhost:5050/` from your web browser. 
+
 In order to use ChessReader one must first load the web extension into the browser, and start the server and client interface via command line. 
 
 Using firefox, enter about:debugging into your URL bar. Click on the ThisFirefox tab and then Load Temporary Add-on and load manifest.json. At this point the extension is loaded. Further clarification can be found here: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#trying_it_out
