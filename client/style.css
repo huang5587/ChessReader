@@ -34,6 +34,6 @@ p {
 }
 
 #statusHeader, #statusText {
-    display: inline; /* or inline-block */
-    margin: 0; /* Optional: Remove default margins */
+    display: inline;
+    margin: 0; 
 }

@@ -1,13 +1,20 @@
-
+/**
+ * chessReader.js
+ * This file contains the logic for the web extension.
+ * The web extension scrapes chess.com for incoming moves and sends the move to backend.
+ */
 async function run() {
-    document.body.style.border = "8px solid green";
+    //this border exists to give a visual indicator for if the extension is active or not.
+    document.body.style.border = "8px solid green"; 
     console.log("loading script...");
     let observedElem = document.getElementsByTagName("wc-vertical-move-list");
 
+    // parseMoves is executed whenever a move is made. 
     var parseMoves = (el) => {
         move_list = []
         var childList = el.children;
 
+        //strip move from CSS element, store in data dictionary 
         for (let item of childList) {
             let moveData = item.children;
             for (let m of moveData) {
@@ -27,6 +34,7 @@ async function run() {
 
         let moves_str = ""
 
+        //convert moves to string
         for (let i = 0; i < move_list.length; i++) {
             const elem = move_list[i];
             moves_str += `${elem['move']}`
@@ -34,6 +42,7 @@ async function run() {
                 moves_str += "_"
             }
         }
+        // send moves to backend server. 
         console.log(JSON.stringify({ moves: moves_str }));
         try {
             res = fetch("http://127.0.0.1:5000/moves", {
@@ -50,13 +59,13 @@ async function run() {
 
     var mutationObserver = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
-            // Check if any added node has the desired class names
-            console.log("Added nodes:", mutation.addedNodes);
-            const hasSelectedNode = Array.from(mutation.addedNodes).some(node =>
+            // Check that the mutation is derived from black / white pieces moving. 
+            // When a move is made chess.com has a seperate mutation to increment the move number.
+            // Without this check parseMoves() is triggered twice per move which resulted in duplicate database entries. 
+            const validMutation = Array.from(mutation.addedNodes).some(node =>
                 node.classList && (node.classList.contains('black') || node.classList.contains('white')));
 
-                // Trigger parseMoves only if the condition is met
-            if (hasSelectedNode && mutation.type === "childList") {
+            if (validMutation && mutation.type === "childList") {
                 parseMoves(observedElem[0]);
             }
         });

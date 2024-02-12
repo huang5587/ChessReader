@@ -66,9 +66,10 @@ class ChessServer():
     def hello_world(self):
         return "Server is Online"
     
-    #receive_game_moves() is a route handler. it is executed when the /moves route is active. 
+    #receive_game_moves() is a route handler. It is executed whenever a move is sent by the web extension.
     def receive_game_moves(self):
         data = request.get_json(force=False, silent=False, cache=True)
+        #store incoming moves and remove underscores. 
         self.moveList = data['moves']
         self.moveList = self.moveList.split("_")
 
