@@ -3,7 +3,7 @@ This repository contains an app that reads and parses chess.com moves and provid
 
 ## Installation
 
-ChessReader requires the following packages:
+ChessReader is deployed and maintained with docker. Installation instructions can be found here: > https://docs.docker.com/engine/install/
 
 #### pyChess 
 pyChess is used to conduct engine analysis and also allows for many convenient chess related functions. Installation instructions can be found here: https://pychess.github.io/download/
