@@ -10,7 +10,7 @@ services:
     depends_on:
       - chess_psql
     environment:
-      DATABASE_URL: "postgresql://Chess:password@chess_psql:5432/ChessDB" 
+      DATABASE_URL: "postgresql://postgres:password@chess_psql:5432/ChessDB" 
       POSTGRES_SSL_MODE: "disable" 
 
   client:
@@ -26,7 +26,7 @@ services:
     image: postgres:14.10
     restart: no 
     environment:
-      POSTGRES_USER: Chess
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
       POSTGRES_DB: ChessDB
     ports:

@@ -1,17 +1,22 @@
-    console.log("client.js running...")
+/**
+ * client.js
+ * This file contains the logic  for the frontend client.
+ * The code displays different html elements according to the socket route used. 
+ */
+
+console.log("client.js running...")
 
     const socket = io("http://127.0.0.1:5000")
-    
-    var shouldDisplayDiv = true; // Change this condition based on your logic
-
+    var statusTextElement = document.getElementById("statusText");
 
     socket.on("connect", () => {
-        document.getElementById('conditionalDiv').innerHTML = "socket is connected";
+        statusTextElement.textContent = "connected"
         console.log("socket.connected"); 
     });
 
     socket.on("disconnect", () => {
-        document.getElementById('conditionalDiv').innerHTML = "socket is disconnected";
+       
+        statusTextElement.textContent = "disconnected"
         console.log("disconnected"); 
     });
 

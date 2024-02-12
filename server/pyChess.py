@@ -5,8 +5,8 @@ import chess.engine
 import threading
 
 """
-    This class exists to process and analyze moves using the python chess library.
-
+pyChess.py
+    This file defines a moveReciever class that processes incoming moves and returns the optimal responses.
 """
 
 class moveReciever(threading.Thread):
@@ -20,8 +20,6 @@ class moveReciever(threading.Thread):
 
     def run(self):
         print("Move Reciever running ...")
-        #make move on board
-        # board = chess.Board()
         
         while True: #loops until termination
             #retrieve moves from Q
@@ -30,6 +28,7 @@ class moveReciever(threading.Thread):
                 #make moves on board
                 self.board.push_san(work)
 
+                #get best positions
                 engine_moves = self.engine.analyse(self.board, chess.engine.Limit(time=0.1), multipv=3)
 
                 payload = []
@@ -41,7 +40,7 @@ class moveReciever(threading.Thread):
                         analList.append(str(engine_moves[x]['pv'][i]))
                     payload.append(analList)
 
-                self.socketio.emit('analysis', payload) #payload is a list, each index is a list of engine moves.
+                self.socketio.emit('analysis', payload) #payload is a list, each index is a list of optimal lines.
 
             except Exception as error:
                 print("Move Reciever", error)
