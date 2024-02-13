@@ -15,18 +15,6 @@ In order to use ChessReader one must first load the web extension into the brows
 
 Using firefox, enter about:debugging into your URL bar. Click on the ThisFirefox tab and then Load Temporary Add-on and load manifest.json. At this point the extension is loaded. Further clarification can be found here: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#trying_it_out
 
-The server can be hosted by running the following from the root directiory: 
-```
-python server.py
-```
-
-Then navigate to the client directory and start the client interface by running the following:
-```
-python -m http.server
-```
-
-Access the client interface with your browser at ```localhost:8000 ```
-
 ChessReader is ready to be used. Login to your chess.com account, get into a game and recieve analysis on the fly!
 
 
