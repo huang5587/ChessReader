@@ -1,5 +1,5 @@
 # ChessReader
-This repository contains an app that reads and parses chess.com moves and provides real-time analysis and move recommendations. Chess.com moves are scraped by a firefox extension, which then sends the moves to a chess engine upon a local server. The moves are then analyzed and the ideal moves are returned to the user as a webpage.
+This repository contains an app that reads and parses chess.com moves and provides real-time analysis and move recommendations. Chess.com moves are scraped by a firefox extension, which then sends the moves to a chess engine upon a local server. The moves are then analyzed and the ideal moves are returned to the user as a webpage. Once the game ends, the frontend will send a signal for the backend to automatically save the game into a local database. This way a complete record of games is saved for later use. 
 
 ## Demo
 https://github.com/huang5587/ChessReader/assets/65338691/fcdf6989-68fa-4436-aeec-c8fd0b50abda
@@ -20,3 +20,4 @@ Next, in a new tab, open `about:debugging` in your browser, click on the ThisFir
 
 At this point you may begin playing and the optimal moves should be automatically displayed on the front end client. 
 
+Note: if you use `docker-compose down` to spin down the container, the database will be wiped. If you wish for your game storage to persist be sure to avoid this.
