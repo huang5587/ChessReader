@@ -1,6 +1,9 @@
 # ChessReader
 This repository contains an app that reads and parses chess.com moves and provides real-time analysis and move recommendations. Chess.com moves are scraped by a firefox extension, which then sends the moves to a chess engine upon a local server. The moves are then analyzed and the ideal moves are returned to the user as a webpage.
 
+## Demo
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U1E2Z1X8KIE?si=KbuIqRnzBvUAbaN_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 ## Installation
 
 ChessReader is deployed and maintained with docker. Installation instructions can be found here: 
