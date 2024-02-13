@@ -10,14 +10,13 @@ ChessReader is deployed and maintained with docker. Installation instructions ca
 > https://docs.docker.com/engine/install/
 
 ## Usage
-To run ChessReader, run `docker-compose up` from the parent directory (containing docker-compose.yml). This will install necessary dependencies and run all of the components of ChessReader.
+To run ChessReader, run `docker-compose up` from the parent directory (containing docker-compose.yml). This will install necessary dependencies all the components of ChessReader (frontend, backend and database).
 
-Once running you can reach the frontend client at `http://localhost:5050/` from your web browser. 
+Once running you can access the frontend client at `http://localhost:5050/` from your web browser. 
 
-In order to use ChessReader one must first load the web extension into the browser, and start the server and client interface via command line. 
+In a new window, open up Chess.com and start a new game against a computer.
 
-Using firefox, enter about:debugging into your URL bar. Click on the ThisFirefox tab and then Load Temporary Add-on and load manifest.json. At this point the extension is loaded. Further clarification can be found here: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#trying_it_out
+Next, in a new tab, open `about:debugging` in your browser, click on the ThisFirefox tab, then Load Temporary Add-on and load manifest.json contained in the extension directory. The web extension should now be loaded. If you can see a green border outlining your screen whilst on chess.com you are good to go. 
 
-ChessReader is ready to be used. Login to your chess.com account, get into a game and recieve analysis on the fly!
-
+At this point you may begin playing and the optimal moves should be automatically displayed on the front end client. 
 
